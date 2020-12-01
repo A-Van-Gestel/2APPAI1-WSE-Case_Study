@@ -25,43 +25,17 @@ jobs:
     - name: Install dependencies
       run: dotnet restore
 
-    # Compile to a single .EXE
-    - name: Build
+    # Compile to a single .EXE [Windows]
+    - name: Build for Windows
       run: dotnet publish -r win-x64 -c Release /p:PublishSingleFile=true /p:PublishTrimmed=true
+      
+      # Compile to a single .EXE [Linux]
+    - name: Build for Linux
+      run: dotnet publish -r linux-x64 -c Release /p:PublishSingleFile=true /p:PublishTrimmed=true
       
     # Test the build
     - name: Test
       run: dotnet test --no-restore --verbosity normal
-      
-#    - name: Upload artifact - Windows
-#      uses: actions/upload-artifact@v2
-#      with:
-#        name: Automated Build
-#        path: "WSE Case Study/bin/Release/netcoreapp3.1/win-x64/publish/WSE Case Study.exe"
-    
-    # Create a Release
-#    - name: Create Release
-#      id: create_release
-#      uses: actions/create-release@v1
-#      env:
-#        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-#      with:
-#        tag_name: ${{ github.ref }}
-#        release_name: Automated Release
-#        draft: false
-#        prerelease: false
-    
-    # Upload the Generated .EXE to the created Release
-#    - name: Upload Release Asset
-#      id: upload-release-asset
-#      uses: actions/upload-release-asset@v1.0.2
-#      env:
-#        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-#      with:
-#        upload_url: ${{ steps.create_release.outputs.upload_url }} # This pulls from the CREATE RELEASE step above, referencing it's ID to get its outputs object, which include a `upload_url`. See this blog post for more info: https://jasonet.co/posts/new-features-of-github-actions/#passing-data-to-future-steps 
-#        asset_path: "WSE Case Study/bin/Release/netcoreapp3.1/win-x64/publish/WSE Case Study.exe"
-#        asset_name: "WSE Case Study.exe"
-#        asset_content_type: application/vnd.microsoft.portable-executable
       
     # Create a Release
     - name: Upload Automated Build
@@ -74,8 +48,11 @@ jobs:
         allowUpdates: true
         draft: false
         prerelease: true
-        artifacts: "WSE Case Study/bin/Release/netcoreapp3.1/win-x64/publish/WSE Case Study.exe"
+        artifacts: "WSE Case Study/bin/Release/netcoreapp3.1/win-x64/publish/WSE Case Study.exe", "WSE Case Study/bin/Release/netcoreapp3.1/linux-x64/publish/WSE Case Study"
         body: |
-          Automated Build using GitHub Actions!
+          Automated Build from latest commit using GitHub Actions!
           May or may not work as expected.
+          
           **Build against:** ${{ github.sha }}
+          Windows (64-bit): WSE.Case.Study.exe
+          Linux (64-bit): WSE.Case.Study

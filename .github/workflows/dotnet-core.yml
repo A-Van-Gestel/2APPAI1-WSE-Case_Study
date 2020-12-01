@@ -40,16 +40,16 @@ jobs:
 #        path: "WSE Case Study/bin/Release/netcoreapp3.1/win-x64/publish/WSE Case Study.exe"
     
     # Create a Release
-    - name: Create Release
-      id: create_release
-      uses: actions/create-release@v1
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      with:
-        tag_name: ${{ github.ref }}
-        release_name: Automated Release ${{ github.ref }}
-        draft: false
-        prerelease: false
+#    - name: Create Release
+#      id: create_release
+#      uses: actions/create-release@v1
+#      env:
+#        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+#      with:
+#        tag_name: ${{ github.ref }}
+#        release_name: Automated Release
+#        draft: false
+#        prerelease: false
     
     # Upload the Generated .EXE to the created Release
 #    - name: Upload Release Asset
@@ -78,4 +78,4 @@ jobs:
         body: |
           Automated Build using GitHub Actions!
           May or may not work as expected.
-          **Based on:** ${{ github.sha }}
+          **Build against:** ${{ github.sha }}

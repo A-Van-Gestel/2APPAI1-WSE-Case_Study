@@ -48,7 +48,7 @@ jobs:
         allowUpdates: true
         draft: false
         prerelease: true
-        artifacts: "WSE Case Study/bin/Release/netcoreapp3.1/win-x64/publish/WSE Case Study.exe","WSE Case Study/bin/Release/netcoreapp3.1/linux-x64/publish/WSE Case Study"
+        artifacts: "WSE Case Study/bin/Release/netcoreapp3.1/win-x64/publish/WSE Case Study.exe,WSE Case Study/bin/Release/netcoreapp3.1/linux-x64/publish/WSE Case Study"
         body: |
           Automated Build from latest commit using GitHub Actions!
           May or may not work as expected.

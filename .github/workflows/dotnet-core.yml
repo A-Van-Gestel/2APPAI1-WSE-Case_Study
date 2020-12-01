@@ -27,4 +27,4 @@ jobs:
       uses: actions/upload-artifact@v2
       with:
         name: Automated Build
-        path: "WSE Case Study\bin\Release\netcoreapp3.1\win-x64\publish\WSE Case Study.exe"
+        path: "WSE Case Study/bin/Release/netcoreapp3.1/win-x64/publish/WSE Case Study.exe"

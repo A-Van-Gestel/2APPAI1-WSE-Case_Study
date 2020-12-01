@@ -8,6 +8,8 @@ namespace WSE_Case_Study
         {
             Console.WriteLine("Hello World!");
             Console.WriteLine("Test for Github Actions!");
+            Console.WriteLine("Press ENTER to exit...");
+            Console.ReadLine();
         }
     }
 }

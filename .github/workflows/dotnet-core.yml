@@ -43,7 +43,7 @@ jobs:
       uses: ncipollo/release-action@v1
       with:
         token: ${{ secrets.GITHUB_TOKEN }}
-        tag: ${{ github.sha }}
+        commit: ${{ github.sha }}
         name: Automated Build (GitHub Actions)
         allowUpdates: true
         replacesArtifacts: true

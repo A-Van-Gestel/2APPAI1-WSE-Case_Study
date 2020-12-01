@@ -44,7 +44,7 @@ jobs:
       with:
         token: ${{ secrets.GITHUB_TOKEN }}
         tag: automated-build
-        name: Automated Build
+        name: Automated Build ${{ github.sha }}
         allowUpdates: true
         replacesArtifacts: true
         draft: false

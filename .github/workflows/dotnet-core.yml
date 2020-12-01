@@ -54,5 +54,5 @@ jobs:
           May or may not work as expected.
           
           **Build against:** ${{ github.sha }}
-          Windows (64-bit): WSE.Case.Study.exe
           Linux (64-bit): WSE.Case.Study
+          Windows (64-bit): WSE.Case.Study.exe

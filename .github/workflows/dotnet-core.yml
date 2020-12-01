@@ -23,3 +23,8 @@ jobs:
       run: dotnet publish -r win-x64 -c Release /p:PublishSingleFile=true /p:PublishTrimmed=true
     - name: Test
       run: dotnet test --no-restore --verbosity normal
+    - name: Upload artifact - Windows
+      uses: actions/upload-artifact@v2
+      with:
+        name: Automated Build
+        path: "WSE Case Study\bin\Release\netcoreapp3.1\win-x64\publish\WSE Case Study.exe"

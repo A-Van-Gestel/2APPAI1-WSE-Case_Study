@@ -7,6 +7,7 @@ namespace WSE_Case_Study
         static void Main(string[] args)
         {
             Console.WriteLine("Hello World!");
+            Console.WriteLine("Test for Github Actions!");
         }
     }
 }

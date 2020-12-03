@@ -29,7 +29,7 @@ jobs:
     - name: Build for Windows
       run: dotnet publish -r win-x64 -c Release /p:PublishSingleFile=true /p:PublishTrimmed=true
       
-      # Compile to a single .EXE [Linux]
+    # Compile to a single binary [Linux]
     - name: Build for Linux
       run: dotnet publish -r linux-x64 -c Release /p:PublishSingleFile=true /p:PublishTrimmed=true
       
